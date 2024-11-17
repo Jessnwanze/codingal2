@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id='loginForm'onsummit='validate(event)'>
+        <fieldset>
+            <div>
+                <label>Email</label>
+                <input type="email" id="email" name='email'>
+            </div>
+            <div>
+                <label>password</label>
+                <input type="password" id="password" name='password' minlength="10">
+            </div>
+            <div>
+                <label>age</label>
+                <input type="age" id="age" name="age" min="18"max="59">
+            </div>
+            <button type="submit">
+                login
+            </button>
+        </fieldset>
+    </form>
+<div id="message">
+    
+</div>
+<script src="script.js"></script>
+</body>
+</html>
