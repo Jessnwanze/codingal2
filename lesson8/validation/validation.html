@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation in js</title>
+</head>
+<body>
+    <h1>click a number and click enter</h1>
+    <input type="number" id="yes" min="200" max="500" required>
+
+    <button onclick="api()">conform</button>
+    <p id="re"></p>
+    <Form name="myform" onsubmit="validationform()">
+        <label>Name</label>
+        <input type="text" name="fname"><br><br>
+
+        <input type="submit" value="Register">
+        <p id="message"></p>
+    </Form>
+
+    <script>
+function api() {
+    let Ip= document.getElementById("yes");
+    if(!Ip.checkValidity()){
+        document.getElementById("re").innerHTML=Ip.validationMessage
+    }
+    else{
+        document.getElementById("re").innerHTML="input is valid"
+    }
+}
+        </script>
+</body>
+</html>
