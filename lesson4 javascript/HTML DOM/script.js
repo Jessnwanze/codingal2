@@ -1,16 +1,16 @@
 function validates(e) {
 e.preventDefault();
 
-const email = document.getElementById('email').Value;
-const pass = document.getElementById('password').Value;
+const email = document.getElementById('email').value;
+const pass = document.getElementById('password').value;
 const age = document.getElementById('age').value;
-const msgBox = document.getElementById('message').value;
+const msgBox = document.getElementById('message');
 
 let message = '';
 
 if (email === '') {
     message = 'enter an email.';
-    msgBox.style.color = 'yellow';
+    msgBox.style.color = 'black';
 } else if (pass === '') {
     message = 'enter a password';
     msgBox.style.color = 'red';
@@ -19,7 +19,7 @@ if (email === '') {
     msgBox.style.color = 'orange';
 } else {
     message = 'Login successful!';
-    msg.style.color = 'green';
+    msgBox.style.color = 'green';
 }
 
 msgBox.innerText = message;
