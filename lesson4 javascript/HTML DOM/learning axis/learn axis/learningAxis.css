@@ -30,7 +30,7 @@ overflow: hidden;
     left: 25px;
     width: 100px;
     height: 100px;
-    background: #000814;
+    background: black;
     border-radius: 50%;
 }
 .star {
@@ -43,13 +43,13 @@ overflow: hidden;
     animation: twinkle 3s infinite ease-in-out;
 }
 .star:nth-child(1) {
-    top: 10%;
-    left: 30%;
+    top: 25%;
+    left: 25%;
     animation-delay: 0.5s;
 }
 .star:nth-child(2) {
     top: 25%;
-    left: 70%;
+    left: 20%;
     animation-delay: 1s;
 }
 .star:nth-child(3) {
@@ -63,9 +63,25 @@ overflow: hidden;
     animation-delay: 2s;
 }
 .star:nth-child(5) {
-    top: 85%;
+    top: 80%;
     left: 40%;
     animation-delay: 2.5s;
+}
+.star:nth-child(6) {
+    top: 35%;
+    left: 90%;
+    animation-delay: 2s;
+
+}
+.star:nth-child(7) {
+    top: 50%;
+    left: 20%;
+    animation-delay: 2.5s;
+}
+.star:nth-child(8) {
+    top: 60%;
+    left: 50%;
+    animation-delay: 2s;
 }
 @keyframes moveMoon {
     0% {
