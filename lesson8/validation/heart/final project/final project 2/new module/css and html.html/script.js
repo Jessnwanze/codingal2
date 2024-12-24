@@ -44,13 +44,13 @@ for (var i = 0; i < operator.length; i++) {
         else {
             var output = getOutput();
             var history = getHistory();
-            if (output==""&&history =!"") {
+            if (output==""&&history !="") {
                 if(isNaN(history[history.length-1])){
                     history=history.substr(0,history.length-1);
                 }
             }
             if(output!="" || history!=""){
-                output= output==!? output: reverseNumberFormat(output);
+                output= output==""? output: reverseNumberFormat(output);
 history= history + output;
 if (this.id=="="){
     var result=eval(history);
