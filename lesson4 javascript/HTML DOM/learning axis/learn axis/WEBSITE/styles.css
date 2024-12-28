@@ -1,0 +1,66 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header */
+header {
+    background-color: #343a40;
+    color: white;
+}
+
+header .btn {
+    font-size: 1.2em;
+}
+
+/* Menu Section */
+#menu .card-body {
+    text-align: center;
+}
+
+.card img {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+#gallery img {
+    border-radius: 8px;
+}
+
+/* Testimonials Section */
+.testimonial {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.testimonial p {
+    font-style: italic;
+}
+
+.testimonial h5 {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+}
