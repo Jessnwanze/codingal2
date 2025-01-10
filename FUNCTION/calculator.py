@@ -41,7 +41,7 @@ def calculator():
     if another_calculation == 'yes':
         calculator()
     else:
-        print("Thank you for using the calculator!")
+        print("Thank you for using the calculator, have a great day!")
 
 # Call the calculator function to start
 calculator()
