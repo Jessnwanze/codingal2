@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling </title>
+    <style>
+        .styled-text {
+            width: 400px;
+            padding: 20px;
+            background-color: #f0f8ff;
+            margin: 50px auto;
+            border-radius: 10px;
+
+            /* Typography */
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.5;
+            text-align: center;
+
+            /* Text Transform */
+            text-transform: uppercase;
+            /* Transform text to uppercase */
+
+            /* Text Decoration */
+            text-decoration: underline wavy #56ff47;
+            /* Wavy red underline */
+
+            /* Text Shadow */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            /* Black shadow with slight blur */
+
+            /* Text Indent */
+            text-indent: 30px;
+            /* Indent the first line of text by 30px */
+
+            /* Box Shadow */
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            /* Shadow around the container */
+
+            /* Transform */
+            transform: rotate(-2deg);
+            /* Slightly rotate the container */
+
+            /* Transition for smooth effects */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .styled-text:hover {
+            /* Hover effect for transform and box-shadow */
+            transform: rotate(0deg);
+            /* Reset rotation on hover */
+            box-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3);
+            /* Larger shadow on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="styled-text">
+        Welcome to the world of CSS Text Styling!
+    </div>
+</body>
+
+</html>
