@@ -1,0 +1,98 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+header {
+    background-color: rgb(17, 0, 255);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Navigation Styling */
+nav {
+    background-color: gray;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styling */
+section.main-content {
+    padding: 30px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+section.main-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+section.main-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Services Section Styling */
+section.services {
+    padding: 30px;
+    background-color: #e2e2e2;
+    color: #333;
+}
+
+section.services h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+section.services ul {
+    list-style-type: square;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgb(24, 21, 182);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    font-size: 1rem;
+}
