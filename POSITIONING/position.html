@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning </title>
+    <style>
+        /* Container Styling */
+        .container {
+            width: 80%;
+            height: 600px;
+            margin: 50px auto;
+            background-color: lightgray;
+            position: relative;
+            /* Makes the container the reference point for absolute positioning */
+            border: 2px solid black;
+            padding: 20px;
+        }
+
+        /* Static Box */
+        .static-box {
+            background-color: lightblue;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid blue;
+        }
+
+        /* Relative Box */
+        .relative-box {
+            position: relative;
+            background-color: lightgreen;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid green;
+            top: 30px;
+            /* Moves the box 30px down from its normal position */
+            left: 40px;
+            /* Moves the box 40px to the right */
+        }
+
+        /* Absolute Box */
+        .absolute-box {
+            position: absolute;
+            background-color: lightcoral;
+            padding: 20px;
+            border: 2px solid red;
+            top: 50px;
+            /* Positioned 50px from the top of the .container */
+            left: 60px;
+            /* Positioned 60px from the left of the .container */
+        }
+
+        /* Fixed Box */
+        .fixed-box {
+            position: fixed;
+            background-color: lightyellow;
+            padding: 20px;
+            border: 2px solid yellow;
+            top: 20px;
+            /* Positioned 20px from the top of the viewport */
+            right: 20px;
+            /* Positioned 20px from the right of the viewport */
+            z-index: 10;
+            /* Makes sure it appears on top of other content */
+        }
+
+        /* Sticky Box */
+        .sticky-box {
+            position: sticky;
+            background-color: lightpink;
+            padding: 20px;
+            border: 2px solid pink;
+            top: 0;
+            /* Sticks to the top of the container when scrolling */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="static-box">Static Box (default)</div>
+        <div class="relative-box">Relative Box</div>
+        <div class="absolute-box">Absolute Box</div>
+        <div class="fixed-box">Fixed Box</div>
+        <div class="sticky-box">Sticky Box</div>
+    </div>
+</body>
+
+</html>
