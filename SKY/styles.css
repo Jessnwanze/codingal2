@@ -1,0 +1,50 @@
+/* Set the basic styles for the body */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Create the sky with a gradient */
+.sky {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #87CEEB, #B0E0E6);
+    /* Light blue sky */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Create the sun */
+.sun {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #FFD700;
+    /* Sun yellow */
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 223, 0, 0.8);
+    animation: moveSun 10s infinite alternate;
+}
+
+/* Animation to simulate the sun's movement across the sky */
+@keyframes moveSun {
+    0% {
+        top: 20%;
+        left: 50%;
+    }
+
+    100% {
+        top: 80%;
+        left: 50%;
+    }
+}

@@ -1,0 +1,83 @@
+/* General body and centering the content */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87CEFA;
+    /* Sky blue background */
+}
+
+/* Scene container */
+.scene {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* See-saw itself */
+.seesaw {
+    position: relative;
+    width: 200px;
+    height: 10px;
+    background-color: #8B4513;
+    /* Brown color for the see-saw */
+    transform-origin: center center;
+}
+
+/* Left side of the see-saw */
+.left-side {
+    position: absolute;
+    left: -40px;
+    bottom: 0;
+}
+
+/* Right side of the see-saw */
+.right-side {
+    position: absolute;
+    right: -40px;
+    bottom: 0;
+}
+
+/* Person sitting on the left */
+.person.left {
+    width: 30px;
+    height: 50px;
+    background-color: #FFCC00;
+    /* Yellow block for the person */
+    border-radius: 5px;
+}
+
+/* Person sitting on the right */
+.person.right {
+    width: 30px;
+    height: 50px;
+    background-color: #FFCC00;
+    /* Yellow block for the person */
+    border-radius: 5px;
+}
+
+/* Keyframe for see-saw rocking animation */
+@keyframes seesawRock {
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+/* Apply animation to the see-saw */
+.seesaw {
+    animation: seesawRock 2s ease-in-out infinite;
+}

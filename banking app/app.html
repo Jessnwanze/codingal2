@@ -4,36 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banking App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Simple Banking App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Banking App</h1>
-        <div id="userDetails">
-            <label for="userId">User ID:</label>
-            <input type="number" id="userId" placeholder="Enter User ID" />
-            <button onclick="getUserDetails()">Get Details</button>
+    <div class="app-container">
+        <h1>Simple Banking App</h1>
+        <div class="balance">
+            <h2>Current Balance: $<span id="balance">1000.00</span></h2>
         </div>
-
-        <div id="accountInfo" style="display:none;">
-            <h2>User Information</h2>
-            <p id="userName"></p>
-            <p id="userBalance"></p>
-
-            <div>
-                <label for="depositAmount">Deposit Amount:</label>
-                <input type="number" id="depositAmount" placeholder="Amount" />
-                <button onclick="deposit()">Deposit</button>
-            </div>
-
-            <div>
-                <label for="withdrawAmount">Withdraw Amount:</label>
-                <input type="number" id="withdrawAmount" placeholder="Amount" />
-                <button onclick="withdraw()">Withdraw</button>
-            </div>
+        <div class="transaction">
+            <h3>Deposit/Withdraw</h3>
+            <input type="number" id="amount" placeholder="Enter amount" />
+            <button id="deposit-btn">Deposit</button>
+            <button id="withdraw-btn">Withdraw</button>
         </div>
+        <div class="message" id="message"></div>
     </div>
 
     <script src="app.js"></script>

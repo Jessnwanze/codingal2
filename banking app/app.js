@@ -1,62 +1,60 @@
-// app.js
-const apiUrl = 'http://localhost:5000/api';
+// Get elements from the DOM
+const balanceElement = document.getElementById('balance');
+const amountInput = document.getElementById('amount');
+const depositButton = document.getElementById('deposit-btn');
+const withdrawButton = document.getElementById('withdraw-btn');
+const messageElement = document.getElementById('message');
 
-// Fetch user details by ID
-async function getUserDetails() {
-    const userId = document.getElementById('userId').value;
-    if (!userId) return alert('Please enter a User ID');
+// Initial balance
+let balance = 1000.00;
 
-    const response = await fetch(`${apiUrl}/user/${userId}`);
-    const data = await response.json();
-
-    if (data.message) {
-        alert(data.message);
-        return;
-    }
-
-    document.getElementById('userName').innerText = `Name: ${data.name}`;
-    document.getElementById('userBalance').innerText = `Balance: $${data.balance}`;
-    document.getElementById('accountInfo').style.display = 'block';
+// Update balance display
+function updateBalance() {
+    balanceElement.textContent = balance.toFixed(2);
+    messageElement.textContent = ''; // Clear any messages
 }
 
-// Deposit money into the account
-async function deposit() {
-    const userId = document.getElementById('userId').value;
-    const amount = document.getElementById('depositAmount').value;
-
-    const response = await fetch(`${apiUrl}/deposit`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: userId, amount: parseFloat(amount) })
-    });
-
-    const data = await response.json();
-    if (data.message) {
-        alert(data.message);
-        return;
-    }
-
-    document.getElementById('userBalance').innerText = `Balance: $${data.balance}`;
-    alert(data.message);
+// Show message
+function showMessage(message, type = 'error') {
+    messageElement.textContent = message;
+    messageElement.style.color = type === 'error' ? 'red' : 'green';
 }
 
-// Withdraw money from the account
-async function withdraw() {
-    const userId = document.getElementById('userId').value;
-    const amount = document.getElementById('withdrawAmount').value;
-
-    const response = await fetch(`${apiUrl}/withdraw`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: userId, amount: parseFloat(amount) })
-    });
-
-    const data = await response.json();
-    if (data.message) {
-        alert(data.message);
+// Deposit money
+function deposit() {
+    const amount = parseFloat(amountInput.value);
+    if (isNaN(amount) || amount <= 0) {
+        showMessage('Please enter a valid amount to deposit');
         return;
     }
-
-    document.getElementById('userBalance').innerText = `Balance: $${data.balance}`;
-    alert(data.message);
+    balance += amount;
+    updateBalance();
+    showMessage(`$${amount.toFixed(2)} deposited successfully!`, 'success');
+    amountInput.value = ''; // Clear input field
 }
+
+// Withdraw money
+function withdraw() {
+    const amount = parseFloat(amountInput.value);
+    if (isNaN(amount) || amount <= 0) {
+        showMessage('Please enter a valid amount to withdraw');
+        return;
+    }
+    if (amount > balance) {
+        showMessage('Insufficient balance for withdrawal');
+        return;
+    }
+    balance -= amount;
+    updateBalance();
+    showMessage(`$${amount.toFixed(2)} withdrawn successfully!`, 'success');
+    amountInput.value = ''; // Clear input field
+}
+
+// Event listeners for buttons
+depositButton.addEventListener('click', deposit);
+withdrawButton.addEventListener('click', withdraw);
+
+// Initialize balance on load
+updateBalance();
+
+    
