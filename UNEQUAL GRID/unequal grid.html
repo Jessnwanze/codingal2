@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unequal Grid Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .box {
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-4">
+        <div class="row">
+            <!-- Unequal grid columns with different widths -->
+            <div class="col-md-6 col-lg-4 box">
+                <h3>Column 1</h3>
+                <p>This is the first column, taking up 6 columns on medium screens and 4 on large screens.</p>
+            </div>
+            <div class="col-md-4 col-lg-6 box">
+                <h3>Column 2</h3>
+                <p>This is the second column, taking up 4 columns on medium screens and 6 on large screens.</p>
+            </div>
+            <div class="col-md-2 col-lg-2 box">
+                <h3>Column 3</h3>
+                <p>This column takes up 2 columns on both medium and large screens.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
