@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Function Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .loading {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Async and Await Example</h1>
+        <button onclick="startProcess()">Start Process</button>
+        <p class="message" id="message"></p>
+    </div>
+
+    <script>
+        // Simulating an asynchronous function (like an API call)
+        async function fetchData() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("Data fetched from the server.");
+                }, 2000);  // Simulating a 2-second delay
+            });
+        }
+
+        // Function that depends on the result of fetchData
+        async function processData() {
+            try {
+                // Display loading message
+                document.getElementById("message").innerHTML = "<span class='loading'>Loading...</span>";
+
+                // Wait for fetchData to resolve
+                const data = await fetchData();
+
+                // After fetching the data, process it and update the message
+                document.getElementById("message").innerHTML = `Processing the following data: ${data}`;
+
+                // Optionally, you could return some processed result
+                return `Processed: ${data}`;
+            } catch (error) {
+                document.getElementById("message").innerHTML = `Error: ${error.message}`;
+            }
+        }
+
+        // Function to trigger the process
+        function startProcess() {
+            processData().then((result) => {
+                console.log(result);  // You can check the result in the console if needed
+            });
+        }
+    </script>
+
+</body>
+
+</html>
