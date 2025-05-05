@@ -1,0 +1,947 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>De Bright College | My future is Bright</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+        <style>
+            :root {
+                --primary-color: #0057b8;
+                --secondary-color: #ffd700;
+                --accent-color: #4caf50;
+                --dark-color: #333;
+                --light-color: #f8f9fa;
+                --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+    
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: var(--font-main);
+                line-height: 1.6;
+                color: var(--dark-color);
+                background-color: var(--light-color);
+            }
+    
+            /* Navigation */
+            .navbar {
+                background-color: white;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+                transition: all 0.3s ease;
+            }
+    
+            .navbar-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 5%;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+    
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+    
+            .logo img {
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+            }
+    
+            .logo-text {
+                display: flex;
+                flex-direction: column;
+            }
+    
+            .logo-text h1 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                margin: 0;
+            }
+    
+            .logo-text span {
+                font-size: 0.85rem;
+                color: var(--accent-color);
+            }
+    
+            .nav-links {
+                display: flex;
+                list-style: none;
+            }
+    
+            .nav-links li {
+                margin-left: 1.5rem;
+            }
+    
+            .nav-links a {
+                text-decoration: none;
+                color: var(--dark-color);
+                font-weight: 500;
+                transition: color 0.3s ease;
+                position: relative;
+                padding: 5px 0;
+            }
+    
+            .nav-links a:hover {
+                color: var(--primary-color);
+            }
+    
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--primary-color);
+                transition: width 0.3s ease;
+            }
+    
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+    
+            .hamburger {
+                display: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+    
+            .contact-btn {
+                background-color: var(--primary-color);
+                color: white;
+                padding: 0.5rem 1.2rem;
+                border-radius: 4px;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+    
+            .contact-btn:hover {
+                background-color: #004494;
+                transform: translateY(-2px);
+            }
+    
+            /* Hero Section */
+            .hero {
+                background: linear-gradient(rgba(0, 87, 184, 0.8), rgba(0, 87, 184, 0.8)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+                height: 80vh;
+                display: flex;
+                align-items: center;
+                color: white;
+                margin-top: 70px;
+                text-align: center;
+            }
+    
+            .hero-content {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+    
+            .hero h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+    
+            .hero p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+    
+            .cta-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+            }
+    
+            .btn {
+                padding: 0.8rem 1.5rem;
+                border-radius: 4px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+    
+            .btn-primary {
+                background-color: var(--secondary-color);
+                color: var(--dark-color);
+            }
+    
+            .btn-primary:hover {
+                background-color: #e6c200;
+                transform: translateY(-2px);
+            }
+    
+            .btn-secondary {
+                background-color: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+    
+            .btn-secondary:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                transform: translateY(-2px);
+            }
+    
+            /* About Section */
+            .section {
+                padding: 5rem 0;
+            }
+    
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+    
+            .section-header {
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+    
+            .section-header h2 {
+                font-size: 2.5rem;
+                color: var(--primary-color);
+                margin-bottom: 1rem;
+                position: relative;
+                display: inline-block;
+            }
+    
+            .section-header h2::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background-color: var(--secondary-color);
+            }
+    
+            .about-content {
+                display: flex;
+                align-items: center;
+                gap: 3rem;
+            }
+    
+            .about-text {
+                flex: 1;
+            }
+    
+            .about-text h3 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                color: var(--dark-color);
+            }
+    
+            .about-text p {
+                margin-bottom: 1.5rem;
+                color: #555;
+            }
+    
+            .about-image {
+                flex: 1;
+                position: relative;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+    
+            .about-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+    
+            /* Programs Section */
+            .programs {
+                background-color: #f3f7fd;
+            }
+    
+            .programs-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+    
+            .program-card {
+                background-color: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+            }
+    
+            .program-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            }
+    
+            .program-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+    
+            .program-content {
+                padding: 1.5rem;
+            }
+    
+            .program-content h3 {
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+                color: var(--primary-color);
+            }
+    
+            .program-content p {
+                color: #666;
+                margin-bottom: 1.2rem;
+            }
+    
+            .read-more {
+                display: inline-block;
+                color: var(--primary-color);
+                font-weight: 600;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+    
+            .read-more:hover {
+                color: var(--accent-color);
+            }
+    
+            /* Facilities Section */
+            .facilities-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+    
+            .facility-item {
+                text-align: center;
+                padding: 2rem;
+                border-radius: 8px;
+                background-color: white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+            }
+    
+            .facility-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+    
+            .facility-icon {
+                font-size: 2.5rem;
+                color: var(--primary-color);
+                margin-bottom: 1rem;
+            }
+    
+            .facility-item h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: var(--dark-color);
+            }
+    
+            .facility-item p {
+                color: #666;
+                font-size: 0.95rem;
+            }
+    
+            /* News Section */
+            .news {
+                background-color: #f3f7fd;
+            }
+    
+            .news-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+    
+            .news-card {
+                background-color: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease;
+            }
+    
+            .news-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+    
+            .news-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+    
+            .news-content {
+                padding: 1.5rem;
+            }
+    
+            .news-meta {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.8rem;
+                font-size: 0.85rem;
+                color: #888;
+            }
+    
+            .news-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.8rem;
+                color: var(--dark-color);
+            }
+    
+            .news-card p {
+                color: #666;
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+            }
+    
+            /* Contact Section */
+            .contact-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 3rem;
+            }
+    
+            .contact-info {
+                padding: 2rem;
+                background-color: var(--primary-color);
+                color: white;
+                border-radius: 8px;
+            }
+    
+            .contact-info h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+    
+            .contact-details {
+                margin-bottom: 2rem;
+            }
+    
+            .contact-item {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 1rem;
+            }
+    
+            .contact-icon {
+                font-size: 1.2rem;
+                margin-right: 1rem;
+            }
+    
+            .social-icons {
+                display: flex;
+                gap: 1rem;
+            }
+    
+            .social-icons a {
+                color: white;
+                font-size: 1.5rem;
+                transition: color 0.3s ease;
+            }
+    
+            .social-icons a:hover {
+                color: var(--secondary-color);
+            }
+    
+            .contact-form {
+                padding: 2rem;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            }
+    
+            .contact-form h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+                color: var(--primary-color);
+            }
+    
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+    
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: 500;
+                color: var(--dark-color);
+            }
+    
+            .form-control {
+                width: 100%;
+                padding: 0.8rem;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-family: inherit;
+                font-size: 1rem;
+            }
+    
+            textarea.form-control {
+                resize: vertical;
+                min-height: 120px;
+            }
+    
+            .submit-btn {
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                padding: 0.8rem 1.5rem;
+                border-radius: 4px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+    
+            .submit-btn:hover {
+                background-color: #004494;
+                transform: translateY(-2px);
+            }
+    
+            /* Footer */
+            footer {
+                background-color: var(--dark-color);
+                color: white;
+                padding: 4rem 0 2rem;
+            }
+    
+            .footer-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 3rem;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+    
+            .footer-column h3 {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+                position: relative;
+                padding-bottom: 10px;
+            }
+    
+            .footer-column h3::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 2px;
+                background-color: var(--secondary-color);
+            }
+    
+            .footer-links {
+                list-style: none;
+            }
+    
+            .footer-links li {
+                margin-bottom: 0.8rem;
+            }
+    
+            .footer-links a {
+                color: #bbb;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+    
+            .footer-links a:hover {
+                color: white;
+            }
+    
+            .footer-bottom {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 2rem 20px 0;
+                text-align: center;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                margin-top: 3rem;
+            }
+    
+            .footer-bottom p {
+                color: #bbb;
+                font-size: 0.9rem;
+            }
+    
+            /* Responsive Design */
+            @media (max-width: 992px) {
+                .about-content {
+                    flex-direction: column;
+                }
+    
+                .hero h1 {
+                    font-size: 2.5rem;
+                }
+            }
+    
+            @media (max-width: 768px) {
+                .nav-links {
+                    position: fixed;
+                    top: 70px;
+                    left: -100%;
+                    background-color: white;
+                    width: 100%;
+                    height: calc(100vh - 70px);
+                    flex-direction: column;
+                    align-items: center;
+                    padding-top: 2rem;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                }
+    
+                .nav-links.active {
+                    left: 0;
+                }
+    
+                .nav-links li {
+                    margin: 1.5rem 0;
+                }
+    
+                .hamburger {
+                    display: block;
+                }
+    
+                .hero {
+                    height: 70vh;
+                }
+    
+                .hero h1 {
+                    font-size: 2rem;
+                }
+    
+                .hero p {
+                    font-size: 1rem;
+                }
+    
+                .cta-buttons {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+    
+                .section-header h2 {
+                    font-size: 2rem;
+                }
+            }
+    
+            @media (max-width: 576px) {
+                .navbar-container {
+                    padding: 0.5rem 3%;
+                }
+    
+                .logo-text h1 {
+                    font-size: 1.2rem;
+                }
+    
+                .logo-text span {
+                    font-size: 0.75rem;
+                }
+    
+                .hero {
+                    height: 60vh;
+                }
+    
+                .section {
+                    padding: 3rem 0;
+                }
+            }
+        </style>
+    </head>
+    
+    
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="logo">
+                    <div class="logo-text">
+                        <h1>De Bright College</h1>
+                        <span>My Future is Bright</span>
+                    </div>
+                </div>
+    
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#facilities">Facilities</a></li>
+                    <li><a href="#news">News & Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="contact-btn">Apply Now</a></li>
+                </ul>
+    
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to De Bright College</h1>
+                <p>Where Excellence Meets Innovation in Education</p>
+                <div class="cta-buttons">
+                    <a href="#programs" class="btn btn-primary">Explore Programs</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+
+                    <div class="about-image">
+                        <img src="school.jpg" alt="Students at De Bright College">
+                    </div>
+
+                    <h2>About Us</h2>
+                    <p>Discover what makes De Bright College a leader in education</p>
+                </div>
+    
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Empowering Students for Tomorrow's Challenges</h3>
+                        <p>Founded in 2005, De Bright College has established itself as a premier educational institution
+                            committed to academic excellence and holistic development. We believe in nurturing not just
+                            intelligence but character, creativity, and leadership.</p>
+                        <p>Our dedicated faculty members bring decades of experience and passion to the classroom, creating
+                            an inspiring learning environment where students are encouraged to think critically, innovate,
+                            and embrace challenges.</p>
+                        <p>At De Bright College, we combine traditional educational values with modern teaching
+                            methodologies and technology to prepare our students for success in a rapidly changing world.
+                        </p>
+                    </div>
+    
+                    <div class="about-image">
+                        <img src="de bright.jpg" alt="Students at De Bright College">
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Programs Section -->
+        <section id="programs" class="section programs">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Programs</h2>
+                    <p>Comprehensive education tailored to diverse interests and aspirations</p>
+                </div>
+    
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <img src="science and tec.jpg" alt="Science Program">
+                        <div class="program-content">
+                            <h3>Science & Technology</h3>
+                            <p>Our cutting-edge science and technology program provides students with hands-on experience in
+                                state-of-the-art laboratories, preparing them for careers in engineering, medicine,
+                                research, and more.</p>
+                            <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+    
+                    <div class="program-card">
+                        <img src="science and tec.jpg" alt="Arts Program">
+                        <div class="program-content">
+                            <h3>Arts & Humanities</h3>
+                            <p>Discover your creative potential through our comprehensive arts and humanities program,
+                                featuring music, visual arts, literature, history, and philosophy courses taught by
+                                accomplished professionals.</p>
+                            <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+    
+                    <div class="program-card">
+                        <img src="pics.jpg"Business Program">
+                        <div class="program-content">
+                            <h3>Business Studies</h3>
+                            <p>Our business studies program equips students with essential knowledge and skills in
+                                economics, management, marketing, and entrepreneurship, preparing them for success in the
+                                global marketplace.</p>
+                            <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Facilities Section -->
+        <section id="facilities" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Facilities</h2>
+                    <p>Modern infrastructure designed to enhance the learning experience</p>
+                </div>
+    
+                <div class="facilities-grid">
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Advanced Laboratories</h3>
+                        <p>Fully equipped science, computer, and language labs with the latest technology and resources.</p>
+                    </div>
+    
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Digital Library</h3>
+                        <p>A vast collection of books, journals, and digital resources accessible to all students.</p>
+                    </div>
+    
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Smart Classrooms</h3>
+                        <p>Interactive learning spaces equipped with digital tools to enhance the teaching-learning process.
+                        </p>
+                    </div>
+    
+                    <div class="facility-item">
+                        <div class="facility-icon">
+                            <i class="fas fa-basketball-ball"></i>
+                        </div>
+                        <h3>Sports Complex</h3>
+                        <p>State-of-the-art facilities for various indoor and outdoor sports activities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- News Section -->
+        <section id="news" class="section news">
+            <div class="container">
+                <div class="section-header">
+                    <h2>News & Events</h2>
+                    <p>Stay updated with the latest happenings at De Bright College</p>
+                </div>
+    
+                <div class="news-grid">
+                    <div class="news-card">
+                        <img src="News.jpg" alt="Science Fair">
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar-alt"></i> April 28, 2025</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3>Annual Science Fair 2025</h3>
+                            <p>Our students showcased their innovative projects at the Annual Science Fair, impressing
+                                judges and visitors with their creativity and scientific knowledge.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+    
+                    <div class="news-card">
+                        <img src="college.jpg" alt="Sports Championship">
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar-alt"></i> April 15, 2025</span>
+                                <span><i class="far fa-user"></i> Sports Department</span>
+                            </div>
+                            <h3>De Bright Wins Regional Championship</h3>
+                            <p>Our basketball team emerged victorious in the Regional Inter-College Championship, bringing
+                                home the trophy after a thrilling final match.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with De Bright College</p>
+                </div>
+    
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <p>11, Adekunle Araba street, Ire-Akari, Okota <br>Lagos State.</p>
+                                </div>
+                            </div>
+    
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p>0706 233 3374</p>
+                                </div>
+                            </div>
+    
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p>info@debrightcollege.edu</p>
+                                </div>
+                            </div>
+    
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+    
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" id="email"
+                                class="form-control" required>
+                                </div>
+</body>
+</html>
